@@ -1,7 +1,7 @@
 body {
   font-family: sans-serif;
   line-height: 1.5;
-  background-color: rgb(246, 240, 232);
+  background-color: rgba(0, 0, 0, 0.552);
 }
 
 h1,
@@ -34,9 +34,17 @@ ul {
 }
 
 h1 {
-  color: rgba(21, 137, 75, 0.792);
+  color: rgba(15, 250, 250, 0.633);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   margin-top: 30px;
   font-size: 40px;
   text-align: center;
+  text-shadow: 1px 1px rgb(45, 206, 206);
+}
+
+h3 {
+  color: rgba(0, 255, 255, 0.633);
+  font-size: 20px;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }

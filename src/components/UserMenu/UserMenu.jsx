@@ -1,28 +1,17 @@
 import { useDispatch, useSelector } from "react-redux";
-import { selectIsLoggedIn, selectUser } from "../../redux/auth/selectors";
-import s from "./UserMenu.module.css";
 import { logOut } from "../../redux/auth/operations";
-import { Link, useNavigate } from "react-router-dom";
+import { selectUser } from "../../redux/auth/selectors";
+import s from "./UserMenu.module.css";
 
 const UserMenu = () => {
-  const username = useSelector(selectUser);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  const isLogin = useSelector(selectIsLoggedIn);
+  const user = useSelector(selectUser);
   return (
-    <div className={s.cont}>
-      <p>Welcome {username}</p>
-      <Link
-        to="/login"
-        onClick={() => {
-          dispatch(logOut());
-          if (!isLogin) {
-            navigate("/login");
-          }
-        }}
-      >
-        Log out
-      </Link>
+    <div className={s.container}>
+      <button className={s.button} onClick={() => dispatch(logOut())}>
+        LogOut
+      </button>
+      <h3>Welcome back {user.name}</h3>
     </div>
   );
 };

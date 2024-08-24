@@ -1,0 +1,14 @@
+.button {
+  border: none;
+  color: white;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  letter-spacing: 0.05em;
+  background-color: rgba(0, 255, 255, 0.633);
+  border-radius: 4px;
+  width: 80px;
+  height: 30px;
+}
+.button:hover {
+  color: rgba(0, 0, 0, 0.444);
+  background-color: aqua;
+}

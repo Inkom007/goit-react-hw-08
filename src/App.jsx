@@ -3,9 +3,9 @@ import Layout from "./components/Layout/Layout";
 import { useEffect, lazy } from "react";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { Routes, Route } from "react-router-dom";
-import RestrictedRoute from "./components/RestrictedRoute.jsx/RestrictedRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 import { selectIsRefreshing } from "./redux/auth/selectors";
-import { getMeThunk } from "./redux/auth/operations";
+import { RefreshUserThunk } from "./redux/auth/operations";
 import Loader from "./components/Loader/Loader";
 
 const HomePage = lazy(() => import("./pages/Home/HomePage"));
@@ -19,7 +19,7 @@ const App = () => {
   const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    dispatch(getMeThunk());
+    dispatch(RefreshUserThunk());
   }, [dispatch]);
   return isRefreshing ? (
     <Loader />
@@ -31,9 +31,9 @@ const App = () => {
           <Route
             path="contacts"
             element={
-              <RestrictedRoute>
+              <PublicRoute>
                 <ContactsPage />
-              </RestrictedRoute>
+              </PublicRoute>
             }
           />
           <Route
